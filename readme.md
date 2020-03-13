@@ -2,7 +2,7 @@
 
 De volgende website is getest: [Het Datahulpje](https://qiubee.github.io/datacompanion). Deze website is gemaakt voor de OBA.
 
-[**Github repository >**](https://github.com/qiubee/datacompanion)
+[**Github repository van de website >**](https://github.com/qiubee/datacompanion)
 
 ## Soorten tests
 
@@ -22,11 +22,131 @@ De website is getest op de volgende features:
 5. [Slecht internet](#breedband-internet-uitzetten)
 6. [Javascript uitzetten](#javascript-uitzetten)
 7. [Cookies niet accepteren](#cookies-niet-accepteren)
-8. [localStorage doet het niet](#localStorage-doet-het-niet)
+8. [localstorage doet het niet](#localstorage-doet-het-niet)
 
 Dit is getest op Linux (Ubuntu) in Firefox 74
 
 ### Afbeeldingen uitzetten
+
+Als het laden van afbeeldingen uitstaat, wordt de alt-tekst getoond verderin plaats van afbeeldingen. Er zijn verder geen problemen gezien.
+
+### Custom fonts uitzetten
+
+Als de custom fonts uitstaan, laad het een systeemfont. Er zijn op de beginpagina geen problemen verder.
+
+Op de overzichtspagina laad het ook het systeemfont. Het enige dat "misgaat" is dat de titel van het informatieoverzicht in capitalen staat in plaats van kleine letters en aan het begin een hoofdletter. Dit kan opgelost worden door in CSS in plaats van `text-transform: uppercase` er `text-transform: capitalize` van te maken, maar het kan ook worden verwijdert.
+
+Ook kan in CSS de *fallback*-fonts en het type font (sans-serif, serif, etc.) nog worden meegegeven.
+
+### Kleur uitzetten en kleurenblindheid instellen
+
+Om het kleurcontrast te controleren, heb ik de Accessability Inspector gebruikt, die in de Developer Tools is te vinden. De WCAG AAA standaarden worden gebruikt voor het controleren van de toegankelijkheid van de tekst. Dit zijn de eisen om WCAG niveau AAA te behalen:
+
+> WCAG Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text. (Bron: [WebAIM](https://webaim.org/resources/contrastchecker/))
+
+#### Beginpagina
+
+Op de beginpagina heeft de heading een contrast van 6.47:1 en 6.82:1. Van de labels heeft de tekst *Vivi* een contrast van 9.3:1 en de tekst *Momo* een contrast van 10.07:1. Deze scores voldoen aan de AAA standaarden van WCAG.
+
+**Resultaten:**
+
+* Heading: 6.47:1 & 6.82:1
+* Tekst keuze 1 (Vivi): 9.3:1
+* Tekst keuze 2 (Momo): 10.07:1
+
+#### Overzichtspagina
+
+Op de overzichts hebben de headings van de boekensectie een contrast van 21:1. Dit is de hoogste score die je kunt halen. Voor het informatieoverzicht heeft de heading een contrast van 9.30:1 en hebben alle items in de lijst een contrast van 17.19:1. Deze scores voldoen aan de AAA standaarden van WCAG.
+
+**Resultaten:**
+
+* Headings (boekensectie): 21:1
+* Heading (informatieoverzicht): 9.30:1
+* Tekst in lijst (informatieoverzicht): 17.19:1.
+
+### Muis/Trackpad werkt niet
+
+#### Problemen
+
+Als je tabt over de input-elementen kun je ze selecteren, maar als je op **Enter** drukt gaat het gelijk naar de overzichtspagina zonder dat je nog terug kunt om een ander kan kiezen.
+
+#### Oplossingen
+
+Een knop toevoegen waarmee je je keuze bevestigt.
+
+### Slecht internet
+
+De snelheid waarop getest is, is **Regular 2G**.
+
+#### Beginpagina
+
+De pagina is snel geladen en is klaar in 340 miliseconden. Er zijn verder geen problemen gezien.
+
+**Resultaten:**
+
+* HTML content geladen: 105 miliseconden.
+* Laden: 279 miliseconden.
+* Klaar: 340 miliseconden.
+
+##### Problemen
+
+Geen problemen.
+
+#### Overzichtspagina
+
+De pagina heeft de HTML redelijk snel geladen en is klaar in 762 miliseconden, maar toen het de afbeeldingen in ging laden steeg de laadtijd flink: naar boven de 10 seconden. Als er een bestand nog niet geladen is verschijnt er een alt-tekst, maar dat gebeurt alleen met JavaScript aan.
+
+**Resultaten:**
+
+* HTML content geladen: 762 miliseconden.
+* Laden: 12.28 seconden.
+* Klaar: 12.28 seconden.
+
+##### Problemen
+
+1. Het laden van de afbeeldingen duurde lang, meer dan 10 seconden.
+2. Alt-tekst verschijnt alleen als JavaScript aan staat.
+
+##### Oplossingen
+
+**1:** De grootte van de afbeeldingen comprimeren en de bestandsgrootte kleiner maken.
+**2:** De alt-tekst genereren op de server en dan pas de HTML versturen in plaats van het in het JavaScript bestand te doen.
+
+### Javascript uitzetten
+
+#### Problemen
+
+1. Als JavaScript uit staat kun je niet verder naar de overzichtspagina en blijf je hangen op de pagina waar je een datahulpje kan kiezen.
+
+#### Oplossingen
+
+**1:** In plaats van het kiezen door JavaScript te laten doen, een knop maken:
+
+```html
+<input type="submit" value="Keuze bevestigen">
+```
+
+Daar kun je op drukken om de keuze te bevestigen. De data wordt dan naar de server verstuurt en de server geeft de de volgende pagina terug.
+
+### Cookies niet accepteren
+
+#### Problemen
+
+1. Als ik geen enkele cookie accepteer kan je niet naar de overzichtspagina gaan, omdat het in de Console de volgende error geeft: `SecurityError: The operation is insecure.`. De gebruiker kan dan niet verder.
+
+#### Oplossingen
+
+**1:** In plaats van de data lokaal op te slaan het naar de server sturen en opslaan in een database.
+
+### localstorage doet het niet
+
+#### Problemen
+
+1. Als localstorage het niet dan kan het niet naar de overzichtspagina gaan, omdat het in de Console de volgende error geeft: `TypeError: storageType is null`. De gebruiker kan dan niet verder.
+
+#### Oplossingen
+
+**1:** In plaats van de data lokaal op te slaan het naar de server sturen en opslaan in een database.
 
 ## Devices
 
