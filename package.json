@@ -11,7 +11,9 @@
     "url": "git+https://github.com/qiubee/setrack.git"
   },
   "keywords": [
-    "sport"
+    "sport",
+    "sports-tracker",
+    "accessibility"
   ],
   "author": "qiubee",
   "license": "MIT",
