@@ -1,0 +1,22 @@
+{
+  "name": "setrack",
+  "version": "1.0.0",
+  "description": "Track sporting events by yourself and share it with the world.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiubee/browser-technologies.git"
+  },
+  "keywords": [
+    "sport"
+  ],
+  "author": "qiubee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qiubee/browser-technologies/issues"
+  },
+  "homepage": "https://github.com/qiubee/browser-technologies#readme"
+}
