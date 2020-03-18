@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qiubee/browser-technologies.git"
+    "url": "git+https://github.com/qiubee/setrack.git"
   },
   "keywords": [
     "sport"
@@ -16,7 +16,7 @@
   "author": "qiubee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/qiubee/browser-technologies/issues"
+    "url": "https://github.com/qiubee/issues"
   },
-  "homepage": "https://github.com/qiubee/browser-technologies#readme"
+  "homepage": "https://github.com/qiubee/setrack#readme"
 }
