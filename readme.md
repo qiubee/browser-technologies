@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Straight line going down and when at the bottom is going left and forming an 'S'-shape. This represents the logo of Setrack." src="img/setrack-logo.png" height="200">
+  <img alt="Straight line going down and when at the bottom is going left and forming an 'S'-shape. This represents the logo of Setrack." src="img/setrack-logo.png" height="300">
 </p>
 
 <p align="center">
