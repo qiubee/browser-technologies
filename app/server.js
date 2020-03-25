@@ -9,7 +9,7 @@ const port = 3000;
 // set handlebars as templating engine
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
-app.engine( "hbs", hbs( { 
+app.engine( "hbs", hbs({ 
     extname: "hbs", 
     defaultLayout: "default", 
     layoutsDir: __dirname + "/views/layouts/",
