@@ -19,7 +19,10 @@ app.engine( "hbs", hbs({
 // use public folder for static files
 app.use(express.static("app/public"));
 
-// routing
+// use urlencoded to read data from post requests
+app.use(express.urlencoded());
+
+// use router file for routing
 app.use("/", router);
 
 app.listen(port, function () {
