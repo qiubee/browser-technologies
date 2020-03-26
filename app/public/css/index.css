@@ -1,33 +1,10 @@
-/* Custom variables */
-@supports (--primary-color: white) {
-    :root {
-        --primary-color: white;
-        --bg-color: #171324;
-    }
-
-    body {
-        background-color: var(--bg-color);
-    }
-
-    body[class="white"], header {
-        background-color: var(--primary-color);
-    }
-}
-
 /* Fonts */
-@supports (@font-face) {
-    @font-face {
-        font-family: "Roboto";
-        font-weight: 400;
-        font-style: normal;
-        src: url(d);
-    }
+@font-face {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal;
+    src: url(d);
 }
-
-h1, h2, h3, h4, h5, h6, p, span, li, a, img {
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
 
 /* set to default */
 body, ul, h1, h2, h3, p {
@@ -39,13 +16,25 @@ ul, ol {
     list-style-type: none;
 }
 
+/* hide elements */
+figcaption {
+    position: absolute;
+    top: -999em;
+    left: -999em;
+}
+
 /* -- Main styling -- */
+* {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
 body {
     background-color: #171324;
 }
 
 a {
-    color: #54C6F9;
+    color: #171324;
+    font-weight: 500;
 }
 
 body[class="white"] {
@@ -58,7 +47,7 @@ body[class="white"] * {
 
 header {
     background-color: white;
-    margin: 6em 0 4em 0;
+    margin: 4em 0;
 }
 
 img[src$="logo.png"] {
@@ -83,9 +72,12 @@ img[src$="logo.png"] {
 }
 
 h1 {
-    font-size: 1.2em;
     font-weight: bold;
-    margin-top: 0.5em;
+}
+
+header h1 {
+    font-size: 1.2em;
+    margin-bottom: 3em;
 }
 
 p {
@@ -94,23 +86,65 @@ p {
     margin: 0 auto;
     font-weight: normal;
 }
+
 nav a {
     color: #171324;
+    font-weight: 500;
 }
 
-nav ul {
-    margin-top: 4em;
+nav li:first-of-type:after {
+    content: "or";
+    display: block;
+    margin-top: 1.5em;
 }
 
-nav li {
-    margin-top: 1em;
+nav li:last-of-type {
+    margin-top: 2.5em;
 }
 
+main ~ nav a {
+    display: inline-block;
+    margin-top: 7.5em;
+}
 
+nav li:last-of-type a, main ~ nav a {
+    text-decoration: none;
+    background-color: #54C6F9;
+    border-bottom: solid 0.25em #0F5D71;
+    padding: 1em;
+    min-width: 10em;
+    color: black;
+    font-weight: bold;
+    border-radius: 0.5em;
+}
 
 /* -- Feature support -- */
-@supports (display: flexbox) {
+/* Custom variables */
+@supports (--primary-color: white) {
+    :root {
+        --primary-color: white;
+        --bg-color: #171324;
+        --blue: #54C6F9;
+        --blue-border: #0F5D71;
+    }
 
+    body {
+        background-color: var(--bg-color);
+    }
+
+    body[class="white"], header {
+        background-color: var(--primary-color);
+    }
+}
+
+@supports (display: flex) {
+    ul {
+        display: flex;
+    }
+
+    ul li:not(:first-of-type) {
+        margin-left: 2em;
+    }
 }
 
 @supports (translate: 0 2em) {
