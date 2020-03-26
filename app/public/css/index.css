@@ -7,7 +7,7 @@
 }
 
 /* set to default */
-body, ul, h1, h2, h3, p {
+body, ul, h1, h2, h3, p, figure {
     margin: 0;
     padding: 0;
 }
@@ -37,6 +37,17 @@ a {
     font-weight: 500;
 }
 
+h1 {
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.25em;
+    max-width: 11em;
+    margin: 0 auto;
+    font-weight: normal;
+}
+
 body[class="white"] {
     background-color: white;
 }
@@ -45,9 +56,14 @@ body[class="white"] * {
     text-align: center;
 }
 
-header {
+body[class="white"] header {
     background-color: white;
     margin: 4em 0;
+}
+
+body[class="white"] header h1 {
+    font-size: 1.2em;
+    margin: 0.5em auto 3em auto;
 }
 
 img[src$="logo.png"] {
@@ -69,27 +85,6 @@ img[src$="logo.png"] {
     border-right-color: #6dc958;
     border-bottom-color: #e580a6;
     border-top-color: #532f76;
-}
-
-h1 {
-    font-weight: bold;
-}
-
-header h1 {
-    font-size: 1.2em;
-    margin-bottom: 3em;
-}
-
-p {
-    font-size: 1.25em;
-    max-width: 11em;
-    margin: 0 auto;
-    font-weight: normal;
-}
-
-nav a {
-    color: #171324;
-    font-weight: 500;
 }
 
 nav li:first-of-type:after {
@@ -115,7 +110,7 @@ nav li:last-of-type a, main ~ nav a {
     min-width: 10em;
     color: black;
     font-weight: bold;
-    border-radius: 0.5em;
+    border-radius: 0.4em;
 }
 
 /* -- Feature support -- */
@@ -138,11 +133,11 @@ nav li:last-of-type a, main ~ nav a {
 }
 
 @supports (display: flex) {
-    ul {
+    body > ul {
         display: flex;
     }
 
-    ul li:not(:first-of-type) {
+    body > ul li:not(:first-of-type) {
         margin-left: 2em;
     }
 }
