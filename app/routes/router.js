@@ -9,10 +9,11 @@ const players = require("./controllers/players");
 const saveSport = require("./controllers/sport");
 
 router.get("/", index)
-    .get("/key", key.save)
+    .get("/key", key.generate)
     .get("/enter-key", key.enter)
     .get("/create", create)
     .get("/players", players)
+    .post("/key", key.access)
     .post("/sport", saveSport);
 
 module.exports = router;
