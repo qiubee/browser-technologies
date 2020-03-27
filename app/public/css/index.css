@@ -7,7 +7,7 @@
 }
 
 /* set to default */
-body, ul, h1, h2, h3, p, figure {
+body, ul, p, figure {
     margin: 0;
     padding: 0;
 }
@@ -17,7 +17,7 @@ ul, ol {
 }
 
 /* hide elements */
-figcaption {
+figcaption, label span, a span {
     position: absolute;
     top: -999em;
     left: -999em;
@@ -26,14 +26,18 @@ figcaption {
 /* -- Main styling -- */
 * {
     font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: white;
 }
 
 body {
     background-color: #171324;
 }
 
-a {
-    color: #171324;
+body > header {
+    background-color: white;
+}
+
+a, html[class="white"] h2 ~ p {
     font-weight: 500;
 }
 
@@ -46,28 +50,91 @@ h1 {
 }
 
 p {
-    font-size: 1.25em;
-    max-width: 11em;
-    margin: 0 auto;
     font-weight: normal;
 }
 
-body[class="white"] {
+/* blue button */
+input[type="submit"], nav li:last-of-type a, main ~ nav a, form ~ a:first-of-type {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #54C6F9;
+    border: 0;
+    border-bottom: solid 0.25em #0F5D71;
+    padding: 1em;
+    min-width: 10em;
+    max-width: 15em;
+    font-weight: bold;
+    border-radius: 0.4em;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, nav li:last-of-type a:hover, main ~ nav a:hover, form ~ a:first-of-type:hover {
+    background-color: #4CB2E0;
+}
+
+input[type="submit"]:active, nav li:last-of-type a:active, main ~ nav a:active, form ~ a:first-of-type:active {
+    border-bottom-width: 0;
+    margin: 0.25em inherit inherit inherit;
+    background-color: #4CB2E0;
+    color: #171324;
+}
+
+input[type="submit"]:focus, nav li:last-of-type a:focus, main ~ nav a:focus, form ~ a:first-of-type:focus {
+    background-color: #4CB2E0;
+}
+
+html[class="white"] body {
     background-color: white;
 }
 
-body[class="white"] * {
+html[class="white"] body * {
     text-align: center;
+    color: #171324;
 }
 
-body[class="white"] header {
-    background-color: white;
-    margin: 4em 0;
+html[class="white"] div {
+    margin-top: 4em;
 }
 
-body[class="white"] header h1 {
+html[class="white"] div > nav:first-of-type {
+    margin: 2em 0;
+}
+
+html[class="white"] header {
+    margin-bottom: 6em;
+}
+
+html[class="white"] figure ~ h1 {
     font-size: 1.2em;
     margin: 0.5em auto 3em auto;
+}
+
+html[class="white"] h2 {
+    text-transform: capitalize;
+    margin-top: 3em;
+}
+
+html[class="white"] main h1 {
+    padding: 0 1em;
+}
+
+html[class="white"] p {
+    font-size: 1.25em;
+    line-height: 1.4em;
+    max-width: 20em;
+    padding: 0 1em;
+    margin: 0 auto;
+}
+
+html[class="white"] h2 ~ p {
+    padding: 1em;
+    background-color: #f1f1f1;
+    border: 0.1em solid #b6b6b3;
+    border-radius: 0.25em;
+    font-size: 1.2em;
+    max-width: 10em;
+    cursor: text;
+    user-select: all; /* non-standard */
 }
 
 img[src$="logo.png"] {
@@ -97,42 +164,12 @@ nav li:first-of-type:after {
     margin: 1.5em 0;
 }
 
-nav li:last-of-type {
-    display: inline;
-}
-
-input[readonly] {
-    margin-bottom: 7.5em;
+main ~ nav {
+    margin: 4em 0 2em 0;
 }
 
 main ~ nav a {
     display: inline-block;
-}
-
-input[type="submit"], nav li:last-of-type a, main ~ nav a, form ~ a:first-of-type {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #54C6F9;
-    border: 0;
-    border-bottom: solid 0.25em #0F5D71;
-    padding: 1em;
-    min-width: 10em;
-    max-width: 15em;
-    color: black;
-    font-weight: bold;
-    border-radius: 0.4em;
-}
-
-input[type="submit"]:hover, nav li:last-of-type a:hover, main ~ nav a:hover, form ~ a:first-of-type:hover {
-    background-color: #4CB2E0;
-    cursor: pointer;
-}
-
-input[type="submit"]:active, nav li:last-of-type a:active, main ~ nav a:active, form ~ a:first-of-type:active {
-    border-bottom-width: 0;
-    margin-top: 0.25em;
-    background-color: #4CB2E0;
-    color: inherit;
 }
 
 /* -- Feature support -- */
@@ -155,6 +192,49 @@ input[type="submit"]:active, nav li:last-of-type a:active, main ~ nav a:active, 
 }
 
 @supports (display: flex) {
+    html[class="white"], html[class="white"] body, html[class="white"] body > div {
+        height: 100%;
+        margin: initial;
+    }
+    
+    html[class="white"] body > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    html[class="white"] body header {
+        margin-top: 0;
+    }
+
+    html[class="white"] header ~ nav:first-of-type {
+        margin: 0;
+    }
+
+    html[class="white"] div > nav:first-of-type {
+        margin: initial;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+    }
+
+    form[action$="key"] label {
+        margin: 0em auto 4em auto;
+    }
+
+    form[action$="key"] input[type="submit"]:active {
+        margin: 0.2em auto auto auto;
+    }
+
+    form[action$="key"] input[type="submit"] {
+        margin: auto;
+        width: 100%;
+    }
+
     body > ul {
         display: flex;
     }
