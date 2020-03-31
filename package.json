@@ -2,9 +2,10 @@
   "name": "setrack",
   "version": "1.0.0",
   "description": "Track sporting events by yourself and share it with the world.",
-  "main": "index.js",
+  "main": "app/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app/server.js",
+    "dev": "nodemon app/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/qiubee/issues"
   },
-  "homepage": "https://github.com/qiubee/setrack#readme"
+  "homepage": "https://github.com/qiubee/setrack#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }

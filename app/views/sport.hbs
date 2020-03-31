@@ -1,0 +1,64 @@
+{{> header}}
+<progress value="25" max="100">
+    <p>Stap <span>1</span> van 4</p>
+</progress>
+
+<ul>
+    <li class="active">Sport</li>
+    <li>Players</li>
+    <li>Date</li>
+    <li>Details</li>
+</ul>
+
+<form action="/sport" method="POST">
+    <h1>Sport</h1>
+        <label>Select sport:
+            <select name="sport">
+                <optgroup label="Ball sports">
+                    <option value="soccer" selected="selected">Soccer</option>
+                    <option value="basketball">Basketball</option>
+                    <option value="football">Football</option>
+                    <option value="baseball">Baseball</option>
+                    <option value="tennis">Tennis</option>
+                    <option value="pool">Pool</option>
+                    <option value="golf">Golf</option>
+                    <option value="volleyball">Volleyball</option>
+                </optgroup>
+                <optgroup label="Board sports">
+                    <option value="surfing">Surfing</option>
+                    <option value="windsurfing">Windsurfing</option>
+                    <option value="kitesurfing">Kitesurfing</option>
+                    <option value="skateboarding">Skateboarding</option>
+                    <option value="snowboarding">Snowboarding</option>
+                </optgroup>
+                <optgroup label="Athletics">
+                    <option value="sprint">Sprint</option>
+                    <option value="middle-distance">Middle-distance running</option>
+                    <option value="relay">Relay</option>
+                    <option value="hurdles">Hurdles</option>
+                    <option value="shot-put">Shot put</option>
+                    <option value="discus">Discus throw</option>
+                    <option value="javelin">Javelin throw</option>
+                    <option value="hammer">Hammer throw</option>
+                    <option value="long-jump">Long jump</option>
+                    <option value="triple-jump">Triple jump</option>
+                    <option value="high-jump">High jump</option>
+                    <option value="pole-vault">Pole vault</option>
+                    <option value="decathlon">Decathlon</option>
+                    <option value="heptathlon">Heptathlon</option>
+                </optgroup>
+                <optgroup label="Motorsports">
+                    <option value="formula-racing">Formula racing</option>
+                    <option value="sports-car-racing">Sports car racing</option>
+                    <option value="stock-car-racing">Stock car racing</option>
+                    <option value="touring-car-racing">Touring car racing</option>
+                    <option value="off-road-racing">Off-road racing</option>
+                    <option value="motor-rallying">Motor rallying</option>
+                    <option value="motorcycle-racing">Motorcycle racing</option>
+                    <option value="drone-racing">Drone racing</option>
+                </optgroup>
+            </select>
+        </label>
+        </section>
+    <input type="submit" value="Save sport">
+</form>
